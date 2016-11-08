@@ -4,6 +4,7 @@
     "modules": true
   },
   "env": {
+    "browser": true,
     "node": true
   },
   "extends": [
@@ -20,7 +21,9 @@
     "no-use-before-define": ["error", { "functions": false, "classes": false }],
     "array-bracket-spacing": 1,
     "eol-last": 1,
-    "no-trailing-spaces": ["warn", { "skipBlankLines": true }]
+    "no-trailing-spaces": ["warn", { "skipBlankLines": true }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": 0
   },
   "plugins": [
     "react"

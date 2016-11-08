@@ -41,7 +41,7 @@ export default class ImageViewer extends Component {
   }
 
   componentDidMount() {
-    this.refs.preload.addEventListener('load', () => {
+    this.$preload.addEventListener('load', () => {
       this.setState({
         isLoaded: true,
       });
@@ -54,8 +54,8 @@ export default class ImageViewer extends Component {
   }
 
   getStyle(styleName) {
-    const win = this.refs.container.ownerDocument.defaultView;
-    return win.getComputedStyle(this.refs.container, null)[styleName];
+    const win = this.$container.ownerDocument.defaultView;
+    return win.getComputedStyle(this.$container, null)[styleName];
   }
 
   getSize() {
@@ -68,7 +68,7 @@ export default class ImageViewer extends Component {
   }
 
   getPosition() {
-    const box = this.refs.image.getBoundingClientRect();
+    const box = this.$image.getBoundingClientRect();
     return {
       top: box.top,
       left: box.left + window.pageXOffset - document.documentElement.clientLeft,
@@ -210,26 +210,30 @@ export default class ImageViewer extends Component {
       <div
         className={this.props.className}
         style={containerStyle}
-        ref="container"
+        ref={element => this.$container = element}
         onTouchTap={this.handleContainerTap}
       >
         <div
           style={imageStyle}
-          ref="image"
+          ref={element => this.$image = element}
           onTouchTap={this.hanleImageTap}
         />
         <div
           style={backgroundStyle}
           onTouchTap={this.hanleImageTap}
         />
-        <img src={this.props.image} style={{ display: 'none' }} alt="" ref="preload" />
+        <img
+          src={this.props.image}
+          style={{ display: 'none' }}
+          alt="preload"
+          ref={element => this.$preload = element}
+        />
       </div>
     );
   }
 }
 ImageViewer.propTypes = {
   className: PropTypes.string,
-  style: PropTypes.object,
   image: PropTypes.string.isRequired,
   config: PropTypes.shape({
     viewedImageSize: PropTypes.number,
