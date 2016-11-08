@@ -21,6 +21,9 @@
   ],
   "author": "foisonocean",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/foisonocean/react-image-viewer/issues"
+  },
   "peerDependencies": {
     "babel-polyfill": "^6.16.0",
     "react": "^15.3.2",
