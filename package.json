@@ -52,6 +52,7 @@
     "webpack-hot-middleware": "^2.13.1"
   },
   "dependencies": {
+    "react-style-proptype": "^1.2.0",
     "react-tap-event-plugin": "^1.0.0"
   }
 }

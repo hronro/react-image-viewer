@@ -2925,6 +2925,10 @@ react-proxy@^1.1.7:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
 
+react-style-proptype:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-style-proptype/-/react-style-proptype-1.2.0.tgz#530b6082e640aeffcfb5354c431e5708a84019bf"
+
 react-tap-event-plugin@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-tap-event-plugin/-/react-tap-event-plugin-1.0.0.tgz#7a248505a9e9abecc352b2dab313d17685c51adf"

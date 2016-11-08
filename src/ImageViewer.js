@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import stylePropType from 'react-style-proptype';
 
 export default class ImageViewer extends Component {
   constructor(props) {
@@ -234,6 +235,7 @@ export default class ImageViewer extends Component {
 }
 ImageViewer.propTypes = {
   className: PropTypes.string,
+  style: stylePropType,
   image: PropTypes.string.isRequired,
   config: PropTypes.shape({
     viewedImageSize: PropTypes.number,
