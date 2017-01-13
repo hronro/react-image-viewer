@@ -4,34 +4,37 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: [
-    // 'eventsource-polyfill',
+    'react-hot-loader/patch',
     'webpack-hot-middleware/client',
+    'babel-polyfill',
     './demo/container',
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'static'),
     filename: 'bundle.js',
     publicPath: '/static/',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     loaders: [
       {
       test: /\.js$/,
-      loaders: ['babel'],
+      loaders: ['babel-loader'],
       },
       {
         test: /\.css/,
-        loader: 'style!css',
+        loaders: [
+          'style-loader?sourceMap',
+          'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          'postcss-loader'
+        ],
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url',
+        loader: 'url-loader',
       },
     ],
-
   },
 };

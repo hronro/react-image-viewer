@@ -1,10 +1,11 @@
 import React from 'react';
+import CSSModules from 'react-css-modules'
 
 import ImageViewer from './../../../src';
 
-import './demo.css';
+import styles from './demo.css';
 
-const Demo = () => (
+const Demo = CSSModules(() => (
   <div>
     <ImageViewer
       image={require('./../../images/1.jpg')}
@@ -27,7 +28,7 @@ const Demo = () => (
       }}
     />
     <ImageViewer
-      className="image1"
+      styleName="image1"
       image="./images/1.jpg"
     />
     <ImageViewer
@@ -46,6 +47,6 @@ const Demo = () => (
       }}
     />
   </div>
-);
+), styles, { allowMultiple: true });
 
 export default Demo;
